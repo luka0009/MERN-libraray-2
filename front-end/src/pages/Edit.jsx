@@ -77,15 +77,15 @@ const Edit = () => {
   }
 
   return (
-    <div className="flex flex-col items-center my-8">
+    <div className="flex flex-col items-center bg-gradient-to-br from-green-200 to-yellow-200 my-[-20px] py-12 min-h-1200px">
       <h1 className="text-3xl font-bold mb-8">Edit Book</h1>
       <form className="w-1/2" onSubmit={handleUpdate}>
         <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="title">
+          <label className="block text-gray-900 font-bold mb-2" htmlFor="title">
             Title:
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="bg-gradient-to-br from-green-400 to-yellow-400 shadow appearance-none border rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
             id="title"
             type="text"
             value={title}
@@ -100,7 +100,7 @@ const Edit = () => {
             Description:
           </label>
           <textarea
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="bg-gradient-to-br from-green-400 to-yellow-400 shadow appearance-none border rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
             id="description"
             rows={6}
             value={description}
@@ -109,13 +109,13 @@ const Edit = () => {
         </div>
         <div className="mb-4">
           <label
-            className="block text-gray-700 font-bold mb-2"
+            className="block text-gray-900 font-bold mb-2"
             htmlFor="author"
           >
             Author:
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="bg-gradient-to-br from-green-400 to-yellow-400 shadow appearance-none border rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
             id="author"
             type="text"
             value={author}
@@ -123,11 +123,11 @@ const Edit = () => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="image">
+          <label className="block text-gray-900 font-bold mb-2" htmlFor="image">
             Image URL:
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="bg-gradient-to-br from-green-400 to-yellow-400 shadow appearance-none border rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
             id="image"
             type="text"
             value={image}

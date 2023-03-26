@@ -24,8 +24,7 @@ export default function Book({ _id, image, author, title, type, description }) {
 
   return (
     <div className="m-3 w-[300px] p-2 px-3">
-      <Button variant="light" className='w-full ml-2 my-2'>Notes</Button>
-      <Card style={{ width: "18rem" }} className='bg-black text-[lawngreen]'>
+      <Card style={{ width: "18rem" }} className='bg-black text-[lawngreen] border-2 border-white'>
         <Card.Img
           variant="top"
           src={image}

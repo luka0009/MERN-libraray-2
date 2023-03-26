@@ -5,6 +5,7 @@ const errorHandler = require("./middleware/errorHandler");
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const bookRoute = require('./routes/bookRoute');
+const authRoute = require('./routes/authRoute');
 const bodyParser = require("body-parser");
 
 const app = express();
@@ -14,6 +15,7 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(cors());
 app.use('/api', bookRoute);
+app.use('/api/auth', authRoute);
 
 const PORT = process.env.PORT || 5000;
 

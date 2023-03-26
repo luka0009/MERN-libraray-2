@@ -1,5 +1,4 @@
 const Book = require("../models/bookModel");
-const Note = require("../models/noteModel");
 const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcrypt");
 
