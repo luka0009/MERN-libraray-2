@@ -1,15 +1,30 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
+const user = JSON.parse(localStorage.getItem("user"));
+const token = user?.token || '';
+
 export const booksApi = createApi({
   reducerPath: 'booksApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000/api' }),
   endpoints: (builder) => ({
     getAllBooks: builder.query({
-      query: () => '/getbooks',
+      query: () => ({
+        url: '/getbooks',
+        method: "GET",
+        // headers: {
+        //   "Authorization": `Bearer ${token}`
+        // }
+      }),
       providesTags: ["books"],
     }),
     getSingleBook: builder.query({
-      query: (id) => `/getbook/${id}`,
+      query: (id) => ({
+        url: `/getbook/${id}`,
+        method: "GET",
+        // headers: {
+        //   "Authorization": `Bearer ${token}`
+        // }
+      }),
       providesTags: ["books"],
     }),
     updateBook: builder.mutation({
@@ -17,6 +32,9 @@ export const booksApi = createApi({
         url: `/update/${id}`,
         method: "PATCH",
         body: update,
+        // headers: {
+        //   "Authorization": `Bearer ${token}`
+        // }
       }),
       invalidatesTags: ["books"],
     }),
@@ -25,6 +43,9 @@ export const booksApi = createApi({
         url: "/create",
         method: "POST",
         body: data,
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
       }),
       invalidatesTags: ["books"],
     }),
@@ -32,6 +53,9 @@ export const booksApi = createApi({
       query: (id) => ({
         url: `/delete/${id}`,
         method: "DELETE",
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
       }),
       invalidatesTags: ["books"],
     }),

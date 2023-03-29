@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import useRedirect from "../hook/useRedirect";
 import {
   useGetSingleBookQuery,
   useUpdateBookMutation,
 } from "../store/booksApi";
 
 const Edit = () => {
+  useRedirect("/login");
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [author, setAuthor] = useState("");
@@ -69,7 +72,11 @@ const Edit = () => {
   }, []);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex justify-center items-center mt-8 md:mt-16 lg:mt-32">
+        <div className="text-[54px]">Loading...</div>
+      </div>
+    );
   }
 
   if (isError) {
@@ -77,7 +84,7 @@ const Edit = () => {
   }
 
   return (
-    <div className="flex flex-col items-center bg-gradient-to-br from-green-200 to-yellow-200 my-[-20px] py-12 min-h-1200px">
+    <div className="flex flex-col items-center bg-gradient-to-br from-green-200 to-yellow-200 py-12 min-h-1200px">
       <h1 className="text-3xl font-bold mb-8">Edit Book</h1>
       <form className="w-1/2" onSubmit={handleUpdate}>
         <div className="mb-4">
@@ -142,10 +149,8 @@ const Edit = () => {
           >
             Submit
           </button>
-          <Link to='/books'>
-            <button
-              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
+          <Link to="/books">
+            <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
               Cancel
             </button>
           </Link>

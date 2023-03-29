@@ -26,12 +26,12 @@ const bookSchema = mongoose.Schema({
     // }],
     type: {
         type: String,
-        required: true,
+        required: false,
     },
     inStock: {
         type: Boolean,
         default: true,
-    }
+    },
 });
 
 const Book = mongoose.model("Book", bookSchema);

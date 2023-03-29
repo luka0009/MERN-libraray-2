@@ -2,8 +2,11 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useAddBookMutation } from "../store/booksApi";
 import { Link } from "react-router-dom";
+import useRedirect from "../hook/useRedirect";
 
 export default function NewBook() {
+  useRedirect('/login');
+
   const { register, handleSubmit, reset } = useForm();
   const navigate = useNavigate();
   const [addBook, bookResults] = useAddBookMutation();

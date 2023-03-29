@@ -2,11 +2,16 @@ import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { motion } from "framer-motion";
 import {Link} from 'react-router-dom';
+import { useSelector } from "react-redux";
 
 export default function Home() {
   const buttonVariants = {
     hover: { scale: 1.1 },
   };
+
+  
+  const user = localStorage.getItem("user");
+  const isLoggedIn = user !== null && user !== "null" && user !== "undefined";
 
   return (
     <div className="bg-gradient-to-br from-green-200 to-yellow-200  min-h-screen">
@@ -36,7 +41,7 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <Link to='/books'>
+              <Link to={isLoggedIn ? `/books` : '/login'}>
                 <Button
                   variant="primary"
                   className="px-8 py-- rounded-full"
@@ -61,7 +66,7 @@ export default function Home() {
           transition={{ duration: 0.65 }}
           src="https://cdn-icons-png.flaticon.com/512/225/225932.png"
           alt="library"
-          className="h-32 w-32 mt-[-330px]"
+          className="h-32 w-32 mt-[-250px]"
         />
       </motion.div>
     </div>
