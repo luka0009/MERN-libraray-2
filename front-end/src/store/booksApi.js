@@ -32,9 +32,9 @@ export const booksApi = createApi({
         url: `/update/${id}`,
         method: "PATCH",
         body: update,
-        // headers: {
-        //   "Authorization": `Bearer ${token}`
-        // }
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
       }),
       invalidatesTags: ["books"],
     }),

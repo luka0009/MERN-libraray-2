@@ -41,7 +41,7 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <Link to={isLoggedIn ? `/books` : '/login'}>
+              <Link to={isLoggedIn ? `/books` : '/books'}>
                 <Button
                   variant="primary"
                   className="px-8 py-- rounded-full"

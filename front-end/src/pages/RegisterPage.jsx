@@ -38,8 +38,8 @@ const RegisterPage = () => {
     console.log(registerResults);
     if(registerResults.isSuccess) {
       console.log('success');
-      localStorage.setItem("user", JSON.stringify(registerResults.originalArgs));
-      navigate('/books');
+      // localStorage.setItem("user", JSON.stringify(registerResults.originalArgs));
+      navigate('/login');
     }
   }, [registerResults])
   const password = watch("password");

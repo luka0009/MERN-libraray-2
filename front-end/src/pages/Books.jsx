@@ -13,7 +13,7 @@ const override = css`
 `;
 
 export default function Books() {
-  useRedirect("/login");
+  // useRedirect("/login");
   const { data, isLoading, error, refetch } = useGetAllBooksQuery();
   console.log(data);
   useEffect(() => {
@@ -31,9 +31,12 @@ export default function Books() {
       </div>
     );
   }
+  const user = JSON.parse(localStorage.getItem("user"));
+  const isLoggedIn = user !== null && user !== "null" && user !== "undefined" && user.token;
   return (
     <div className="bg-[#121212] bg-gradient-to-tl from-pink-800 to-purple-900 text-white mt-[-49px] min-h-screen">
       <div className="flex flex-col items-center justify-center mt-5">
+        {!isLoggedIn && <span className="mt-4 -mb-5 text-red-500 bg-gray-900 p-2 text-lg">Note: Please, log in to be unlock all features</span>}
         <h1 className="mt-3"> Any New Books? </h1>
         {/* <button>Add Book</button> */}
         <Link to="/newbook">

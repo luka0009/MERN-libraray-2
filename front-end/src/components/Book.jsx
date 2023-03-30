@@ -22,6 +22,10 @@ export default function Book({ _id, image, author, title, type, description }) {
     }
   }
 
+
+  const user = JSON.parse(localStorage.getItem("user"));
+  const isLoggedIn = user !== null && user !== "null" && user !== "undefined" && user.token;
+
   return (
     <div className="m-3 w-[300px] p-2 px-3">
       <Card style={{ width: "18rem" }} className='bg-black text-[lawngreen] border-2 border-white'>
@@ -72,7 +76,7 @@ export default function Book({ _id, image, author, title, type, description }) {
             <Button id={_id} onClick={handleClick} variant="primary">
               Edit Book
             </Button>
-            <Button onClick={handleDelete} id={_id} variant="danger">
+            <Button disabled={!isLoggedIn} onClick={handleDelete} id={_id} variant="danger">
               Delete
             </Button>
           </div>
